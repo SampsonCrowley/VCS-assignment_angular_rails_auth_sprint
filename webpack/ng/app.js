@@ -1,5 +1,5 @@
 
-var authenticated = angular.module('authenticated', ['Devise', 'ui.router', "restangular"]).constant("_", window._)
+window.authenticated = angular.module('authenticated', ['Devise', 'ui.router', "restangular"]).constant("_", window._)
 
 authenticated.config(
   ["$httpProvider",
@@ -26,7 +26,7 @@ authenticated.config([
 authenticated.config([
   'AuthProvider',
   function(AuthProvider) {
-    AuthProvider.loginPath('/api/v1/user/sign_in.json');
+    AuthProvider.loginPath('/api/v1/users/sign_in.json');
     AuthProvider.loginMethod('POST');
     AuthProvider.resourceName('users');
   }
@@ -38,7 +38,10 @@ authenticated.config([
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('index', {
-      
+      url: "/",
+      templateUrl:'ng/views/index.html',
+      controller: 'UserCtrl'
+
     })
   }
 ])

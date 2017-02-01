@@ -1,4 +1,5 @@
-authenticated.controller("userController", [ "$scope", "Auth", 
+authenticated.controller("UserCtrl", [ 
+  "$scope", "Auth",
   function($scope, Auth){
     Auth.currentUser().then(
       function(user){
@@ -7,6 +8,6 @@ authenticated.controller("userController", [ "$scope", "Auth",
       }).catch(function(err){
         console.log(err)
       })
-}
+  }
 
-  ])
+])
