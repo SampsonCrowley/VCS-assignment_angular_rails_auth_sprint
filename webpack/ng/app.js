@@ -1,4 +1,5 @@
-var authenticated = angular.module('authenticated', ['Devise', 'ui.router', 'restangular-umd']).constant("_", window._)
+
+var authenticated = angular.module('authenticated', ['Devise', 'ui.router', "restangular"]).constant("_", window._)
 
 authenticated.config(
   ["$httpProvider",
@@ -32,9 +33,9 @@ authenticated.config([
 ]);
 
 authenticated.config([
-  '$stateProvider', '$urlLocationProvider',
-  function($stateProvider, $urlLocationProvider){
-    $urlLocationProvider.otherwise('/');
+  '$stateProvider', '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('index', {
       

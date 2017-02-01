@@ -1,6 +1,10 @@
-import $ from "jquery";
-import "angular";
-import "angular-ui-router";
-import "restangular-umd";
-import "ng/vendor/devise.js";
-import "ng/app.js";
+window.jQuery = require("jquery");
+
+require("angular")
+require("angular-ui-router")
+require("restangular-umd")
+require("./ng/vendor/devise.js");
+require("./ng/app.js");
+
+function requireAll(r) { r.keys().forEach(r); }
+requireAll(require.context('./ng/', true, /\.js$/));
